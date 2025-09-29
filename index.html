@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameboy Advance Style</title>
+    <style>
+        body {
+            margin: 0;
+            background: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .gba {
+            background: #6b5ca5;
+            border-radius: 40px;
+            padding: 40px 60px;
+            /* más espacio horizontal */
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            /* separa más la pantalla de los botones */
+        }
+
+        .screen {
+            background: #333;
+            border: 8px solid #222;
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .screen canvas {
+            width: 640px;
+            /* el doble de grande */
+            height: 360px;
+            image-rendering: pixelated;
+            border: 4px solid #111;
+            border-radius: 4px;
+            background: black;
+        }
+
+        .dpad {
+            width: 100px;
+            height: 100px;
+            background: #444;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .dpad::before,
+        .dpad::after {
+            content: "";
+            position: absolute;
+            background: #222;
+        }
+
+        .dpad::before {
+            width: 100%;
+            height: 30%;
+            top: 35%;
+            left: 0;
+        }
+
+        .dpad::after {
+            width: 30%;
+            height: 100%;
+            top: 0;
+            left: 35%;
+        }
+
+        .ab {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ab .btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #a00;
+            box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gba">
+        <!-- D-Pad a la izquierda -->
+        <div class="dpad"></div>
+
+        <!-- Pantalla en el centro -->
+        <div class="screen">
+            <canvas id="game"></canvas>
+        </div>
+
+        <!-- Botones a la derecha -->
+        <div class="ab">
+            <div class="btn"></div>
+            <div class="btn"></div>
+        </div>
+    </div>
+
+    <script src="data/collisiions.js"></script>
+    <script src="classes.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
